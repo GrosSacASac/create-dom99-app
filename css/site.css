@@ -1,0 +1,49 @@
+/* styles for the entire site */
+
+/* tachyons
+for production use a bundler to avoid network round-trips
+*/
+@import '../node_modules/tachyons/css/tachyons.min.css';
+
+
+body {
+   background-color: #fad420;
+   background-image: linear-gradient(to left, #fe4050 , #fad420);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+table {
+	/*font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
+	min-width: 100%;
+	background: #fff;
+	border-collapse: collapse;
+	text-align: left;
+}
+
+table > caption {
+   
+	min-width: 100%;
+	text-align: center;
+	font-size: 24px;
+	text-transform: uppercase;
+	background: #111;
+	color: #eee;
+}
+
+th {
+	padding: 7px;
+	border-bottom: 2px solid #6678b1;
+	font-size: 14px;
+	font-weight: normal;
+	color: #001256;
+}
+
+td {
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+	color: #4a4b6f;
+}

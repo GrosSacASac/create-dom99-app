@@ -1,0 +1,17 @@
+{
+  "name": "example-number-90184649",
+  "version": "1.0.0",
+  "description": "",
+  "main": "a.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tachyons": "^4.9.0"
+  },
+  "dependencies": {
+    "dom99": "^8.2.2"
+  }
+}
