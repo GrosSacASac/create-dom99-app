@@ -9,14 +9,14 @@ Get started quickly with files and structure ready.
 
 ### Style
 
-    [tachyons CSS framework](http://tachyons.io/)
+[tachyons CSS framework](http://tachyons.io/)
     
 ### DOM manipulation
 
-    [dom99](https://cdn.rawgit.com/GrosSacASac/DOM99/master/documentation/documentation.html)
+[dom99](https://cdn.rawgit.com/GrosSacASac/DOM99/master/documentation/documentation.html)
 
 
-## Zero second compile time during dev
+## Zero second compile time during development
 
 When developping using an es modules capable browser you don't have to bundle your js modules, just refresh your browser to see changes.
 
@@ -25,7 +25,7 @@ When developping using an es modules capable browser you don't have to bundle yo
 
 ### 1.Download
 
-Download on [GitHub]()
+Download on [GitHub](https://github.com/GrosSacASac/create-dom99-app/archive/master.zip)
 
 
 ### 2.Profit
