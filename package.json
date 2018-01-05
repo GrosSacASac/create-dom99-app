@@ -9,9 +9,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "tachyons": "^4.9.0"
+    "tachyons": "^4.9.1"
   },
   "dependencies": {
-    "dom99": "^8.2.2"
+    "dom99": "^8.2.4"
   }
 }
