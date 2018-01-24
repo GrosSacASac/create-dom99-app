@@ -1,8 +1,7 @@
 {
-  "name": "example-number-90184649",
+  "name": "create-dom99-app",
   "version": "1.0.0",
   "description": "",
-  "main": "a.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +11,6 @@
     "tachyons": "^4.9.1"
   },
   "dependencies": {
-    "dom99": "^8.2.4"
+    "dom99": "^8.2.11"
   }
 }
