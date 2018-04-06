@@ -4,7 +4,7 @@ import {helpText} from "./helpTexts.js";
 
 const showHelp = function () {
   d.elements.showHelp.remove();
-  d.feed(helpText, "helpText");
+  d.feed(`helpText`, helpText);
 };
 
 
@@ -16,7 +16,7 @@ d.start(
         showHelp
     }, // functions
     {
-        title: "Hello World"
+        title: `Hello World`
     }, // initial feed
     document.body, // start Element
     function () {
