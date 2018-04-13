@@ -10,7 +10,7 @@ Get started quickly with files and structure ready.
 ### Style
 
 [tachyons CSS framework](http://tachyons.io/)
-    
+
 ### DOM manipulation
 
 [dom99](https://cdn.rawgit.com/GrosSacASac/DOM99/master/documentation/documentation.html)
@@ -28,10 +28,9 @@ When developping using an es modules capable browser you don't have to bundle yo
 Download on [GitHub](https://github.com/GrosSacASac/create-dom99-app/archive/master.zip)
 
 
-### 2.Profit
+### 2.Install dependencies
 
-No further install steps required, node_modules is included. Open ``index.html`` and ``js/main.js`` in your favourite text editor and start hacking.
-
+`npm install`
 
 
 
