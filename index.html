@@ -1,31 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
     <meta charset="utf-8">
-    <title>Starter</title>
+    <title>test</title>
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="./images/icon152.jpg">
-    <!-- styles for the entire site -->
-    <link rel="stylesheet" href="css/site.css">
-    <!-- styles for this site sub category -->
-    <link rel="stylesheet" href="css/site-category.css">
-    <!-- styles only for this page -->
-    <link rel="stylesheet" href="css/page-index.css">
-    <!-- by default modules execute on load and are non blocking -->
-    <script src="js/main.js" type="module"></script>
+    <script type="module" src="devLoader.js"></script>
+    <script type="module" src="main.js"></script>
 </head>
+<body data-element="body" class="paused">
 
-<!-- avenir typeface and some padding-->
-<body class="avenir pa3">
+<script type="text/html" data-inline src="paragraph.html"></script>
+<script type="text/html" data-inline src="paragraph.html"></script>
 
-
-    <h1 data-variable="title" class="f1">Hello World</h1>
-
-    <p data-element="loadingHint">Loading ...</p>
-
-    <button data-function="showHelp" data-element="showHelp" class="f6 f5-ns fw6 dib ba b--black-20 bg-blue white ph3 ph4-ns pv2 pv3-ns br2 grow">Show Help</button>
-
-    <p data-variable="helpText"></p>
+<h2>index.html testing inlining html</h2>
+<p data-variable="i"></p>
 
 
 </body>
