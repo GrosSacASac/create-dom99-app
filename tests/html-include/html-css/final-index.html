@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../../../devLoader.css">
+    <script type="module" src="../../../devLoader.js"></script>
+    <script type="module" src="main.js"></script>
+</head>
+<body data-element="body" class="paused">
+
+<style>
+.blue {
+    background-color: blue;
+}
+</style>
+<p class="blue">p-blue <span data-variable="p"></span></p>
+
+<style>
+.red {
+    background-color: red;
+}
+</style>
+<p class="red">p-red <span data-variable="p"></span></p>
+
+<p>Paragraph to be imported (import successfull)</p>
+<p data-variable="p"></p>
+<h2>p-wraper</h2>
+<div style="border: 1px solid">
+  <p>Paragraph to be imported (import successfull)</p>
+<p data-variable="p"></p>
+</div>
+
+<h2>index.html testing inlining html</h2>
+<p data-variable="i"></p>
+
+
+</body>
+</html>
