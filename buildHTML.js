@@ -9,6 +9,9 @@ const {
     writeTextInFilePromiseFromPathAndString,
     copyFile
 } = require("utilsac");
+const path = require("path");
+
+const cliInputs = process.argv.slice(2); // command line inputs
 
 const skipMinification = false;
 
@@ -16,19 +19,18 @@ const skipMinification = false;
 const thisName = "html build";
 
 
-const INDEX_PATH = "index.html";
-const BUILT_PATH = "final.html";
+const prefixFinal = "final-";
 const devLoaderString = `<script type="module" src="devLoader.js"></script>`;
 // todo use this map
 const map = {};
 
-const inlineHTML = function (html) {
+const inlineHTML = function (html, baseDir) {
     let newHTML = html;
     const findInlines = /<script type="text\/html" data-inline src="([^"]+)"><\/script>/g;
     
     const allMatches = [];
     let matches;
-    while(matches = findInlines.exec(newHTML)) {
+    while (matches = findInlines.exec(newHTML)) {
         allMatches.push(matches);
     }
     if (allMatches.length === 0) {
@@ -37,12 +39,15 @@ const inlineHTML = function (html) {
     
     return Promise.all(
         allMatches.map(function (match) {
-            return textFileContentPromiseFromPath(match[1]);
+            return textFileContentPromiseFromPath(path.join(baseDir, match[1]));
         })
     ).then(function (importedHTMLs) {
         return Promise.all(
-            importedHTMLs.map(function (importedHTML) {
-                return inlineHTML(importedHTML);
+            importedHTMLs.map(function (importedHTML, i) {
+                return inlineHTML(
+                  importedHTML,
+                  path.dirname(path.join(baseDir, allMatches[i][1]))
+                );
             })
         );
     }).then(function (importedHTMLs) {
@@ -51,7 +56,6 @@ const inlineHTML = function (html) {
         
         });
     }).catch(function (error) {
-        console.log(error);
         console.log(`
         Could not import file ${error.path}`);
     }).then(function () {
@@ -59,17 +63,24 @@ const inlineHTML = function (html) {
     });
 };
 
-Promise.all([
-    textFileContentPromiseFromPath(INDEX_PATH),
-]).then(function ([indexHTMLString]) {
-    const withOutDevloader = indexHTMLString.replace(devLoaderString, ``);;    
-    return inlineHTML(withOutDevloader);
+Promise.all(cliInputs.map(textFileContentPromiseFromPath)
+).then(function (originalHTMLStrings) {
+    return Promise.all(originalHTMLStrings.map(function (originalHTMLString, i) {
+      const withOutDevloader = originalHTMLString.replace(devLoaderString, ``);;    
+      return inlineHTML(withOutDevloader, path.dirname(cliInputs[i]));
+    }));
+}).then(function (newHTMLStrings) {    
+    return Promise.all(newHTMLStrings.map(function (newHTMLString, i) {
+      const oldPathParsed = path.parse(cliInputs[i]);
+      const newPath = path.join(oldPathParsed.dir, `${prefixFinal}${oldPathParsed.base}`);
+      return writeTextInFilePromiseFromPathAndString(
+        newPath,
+        newHTMLString
+      );
+    }));
     
-}).then(function (newHTML) {    
-    return writeTextInFilePromiseFromPathAndString(BUILT_PATH, newHTML);
 }).catch(function (reason) {
     const errorText = thisName + " failed: " + String(reason);
     console.log(errorText);
-    throw new Error(errorText);
 });
 

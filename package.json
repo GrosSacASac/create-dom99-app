@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dynamicBuild": "echo \"No build step required open html files directly !\"",
-    "b": "node buildHTML.js"
+    "b-html-only": "node buildHTML.js tests/html-include/html-only/index.html"
   },
   "author": "",
   "license": "ISC",
