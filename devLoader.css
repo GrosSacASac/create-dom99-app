@@ -1,0 +1,12 @@
+script[type="text/html"][data-inline] {
+  display: block;
+  height: 20px;
+  
+}
+
+script[type="text/html"][data-inline]:after {
+  content: "error import open console";
+  font-weight: bold;
+  color: red;
+  
+}
