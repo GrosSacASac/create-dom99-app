@@ -1,0 +1,9 @@
+.empty:after {
+  content: "Empty !";
+  font-weigt: bold;
+}
+
+.night {
+  background-image: linear-gradient(to left, #010204 , #030256);
+  color: #ffffff;
+}
