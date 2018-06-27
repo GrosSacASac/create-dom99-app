@@ -1,0 +1,30 @@
+
+<style>
+.user {
+	max-width: 200px;
+    background-color: #6293a6;  /* fallback */
+    background-image: linear-gradient(0, #f3a0a0, #427090);
+}
+
+.user-picture {
+    border-radius: 50%;
+}
+
+.user-bio {
+    text-indent: 2;
+    font-style: italic;
+}
+
+.user-contact {
+
+}
+</style>
+<!-- Define the template for an user
+    every user has a picture, a short biography, and a contact button -->
+<template data-template="user-element">
+	<div class="user">
+		<img data-variable="picture" alt="user-picture" class="user-picture">
+		<p data-variable="bio" class="user-bio">SHORT BIO</p>
+		<button class="user-contact">Contact</button>
+	</div>
+</template>
