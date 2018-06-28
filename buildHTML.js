@@ -9,6 +9,7 @@ const {
     writeTextInFilePromiseFromPathAndString,
     copyFile
 } = require("utilsac");
+
 const path = require("path");
 
 const cliInputs = process.argv.slice(2); // command line inputs
@@ -20,7 +21,8 @@ const thisName = "html build";
 
 
 const prefixFinal = "final-";
-const devLoaderString = `<script type="module" src="devLoader.js"></script>`;
+const devLoaderString = `<script type="module" src="../../../devLoader.js"></script>`;
+const devLoaderDebug = `<link rel="stylesheet" href="../../../devLoader.css">`;
 // todo use this map
 const map = {};
 
@@ -66,7 +68,8 @@ const inlineHTML = function (html, baseDir) {
 Promise.all(cliInputs.map(textFileContentPromiseFromPath)
 ).then(function (originalHTMLStrings) {
     return Promise.all(originalHTMLStrings.map(function (originalHTMLString, i) {
-      const withOutDevloader = originalHTMLString.replace(devLoaderString, ``);;    
+      const withOutDevloader = originalHTMLString.replace(devLoaderString, ``)
+																			 .replace(devLoaderDebug, ``);    
       return inlineHTML(withOutDevloader, path.dirname(cliInputs[i]));
     }));
 }).then(function (newHTMLStrings) {    

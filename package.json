@@ -6,7 +6,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dynamicBuild": "echo \"No build step required open html files directly !\"",
     "t1": "node buildHTML.js tests/html-include/html-only/index.html",
-    "t2": "node buildHTML.js tests/html-include/html-css/index.html"
+    "t2": "node buildHTML.js tests/html-include/html-css/index.html",
+    "t3": "node buildHTML.js tests/html-include/html-js/entry.html",
+	"pack-dev": "parcel build tests/html-include/html-js/entry.html",
+	"pack": "parcel build tests/html-include/html-js/final-entry.html"
   },
   "author": "",
   "license": "ISC",

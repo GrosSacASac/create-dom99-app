@@ -216,3 +216,4 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 final.html
+tests/html-include/html-js/final-entry.html
