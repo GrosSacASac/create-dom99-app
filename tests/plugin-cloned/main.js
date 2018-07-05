@@ -1,6 +1,5 @@
 //main.js
-import {d, plugin} from "../../../node_modules/dom99/source/dom99.js";
-import {idGenerator} from "./idGenerator.js";
+import {d, plugin, idGenerator} from "../../../node_modules/dom99/source/dom99.js";
 
 plugin({
 	type: `cloned`,
