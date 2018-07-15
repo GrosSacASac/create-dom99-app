@@ -17,8 +17,8 @@
     "tachyons": "*"
   },
   "dependencies": {
-    "dom99": "^14.3.1",
+    "dom99": "^14.4.0",
     "parcel-bundler": "^1.9.2",
-    "utilsac": "^6.0.2"
+    "utilsac": "^7.0.0"
   }
 }
