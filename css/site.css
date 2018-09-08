@@ -1,9 +1,10 @@
 /* styles for the entire site */
 
-/* tachyons
+/* example import css framework
+@import '../node_modules/tachyons/css/tachyons.min.css';
 for production use a bundler to avoid network round-trips
 */
-@import '../node_modules/tachyons/css/tachyons.min.css';
+
 
 
 body {
@@ -25,7 +26,7 @@ table {
 }
 
 table > caption {
-   
+
 	min-width: 100%;
 	text-align: center;
 	font-size: 24px;

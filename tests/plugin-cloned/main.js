@@ -1,33 +1,39 @@
 //main.js
-import {d, plugin, idGenerator} from "../../../node_modules/dom99/source/dom99.js";
+import * as d from "../../../node_modules/dom99/built/dom99ES.js";
 
-plugin({
+d.plugin({
 	type: `cloned`,
-	plugin: function (pathInStart) {
-		const afterLabelInputCreated = function() {
-			const newId = idGenerator();
-			d.elements[d.contextFromArray([pathInStart, `input`])].setAttribute('id', newId);
-			d.elements[d.contextFromArray([pathInStart, `label`])].setAttribute('for', newId);
-		};
-		afterLabelInputCreated();
+	plugin: function (pathInStart,z) {
+		if (!pathInStart.includes("questions")) {
+			return;
+		}
+		const newId = d.idGenerator();
+		d.element(pathInStart, `input`).setAttribute('id', newId);
+		d.element(pathInStart, `label`).setAttribute('for', newId);
 	}
 });
 d.start();
 
-const afterLabelInputCreated = function () {
-	const newId = idGenerator();
-	d.elements[`input`].id = newId
-	d.elements[`label`].for = newId
-};
 
-d.feed({users :
+d.feed({questions:
     [
         {
-            picture: "boss.jpg",
-            bio: "Loves biking and skating"
+            label: "Age",
+            value: "18"
         },
         {
-            picture: "sister.jpg",
-            bio: "Drinks tons of café."
+			label: "City",
+            value: "Luxembourg"
         }
 ]});
+d.feed({custom:
+    [
+        {
+            e: "x"
+        },
+        {
+			r: "z"
+        }
+]});
+
+window.d = d;

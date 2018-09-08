@@ -3,13 +3,9 @@
 ## An opinionated starter pack for front end web development
 
 
-Get started quickly with files and structure ready.
+Get started with files and structure ready.
 
 ## What is included
-
-### Style
-
-[tachyons CSS framework](http://tachyons.io/)
 
 ### DOM manipulation
 

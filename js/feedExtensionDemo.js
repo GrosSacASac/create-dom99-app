@@ -1,7 +1,7 @@
-import {d, plugin} from "../node_modules/dom99/source/dom99.js";
+import * as d from "../node_modules/dom99/built/dom99ES.js";
 window.d = d;
 
-plugin({
+d.plugin({
     type: `variable`,
     plugin: function (startPath, data) {
       if (startPath === "users") {
@@ -14,7 +14,7 @@ plugin({
     }
 });
 
-plugin({
+d.plugin({
     type: `variable`,
     plugin: function (startPath, data) {
       if (startPath === "theme") {

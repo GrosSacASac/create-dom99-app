@@ -1,5 +1,5 @@
 //main.js
-import {d} from "../../../node_modules/dom99/source/dom99.js";
+import * as d from "../../../node_modules/dom99/built/dom99ES.js";
 
 d.start();
 
