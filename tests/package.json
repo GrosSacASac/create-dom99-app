@@ -1,0 +1,14 @@
+{
+  "name": "create-dom99-app-tests",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dynamicBuild": "echo \"No build step required open html files directly !\"",
+    "t1": "node ../tools/inlineHTML.js html-include/html-only/index.html",
+    "pack1": "parcel build html-include/html-only/final-index.html",
+    "t2": "node ../tools/inlineHTML.js html-include/html-css/index.html",
+    "pack2": "parcel build html-include/html-css/final-index.html",
+    "t3": "node ../tools/inlineHTML.js html-include/html-js/entry.html",
+    "pack3": "parcel build html-include/html-js/final-entry.html"
+  }
+}

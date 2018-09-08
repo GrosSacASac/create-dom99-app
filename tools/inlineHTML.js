@@ -18,8 +18,8 @@ const thisName = "html build";
 
 
 const prefixFinal = "final-";
-const devLoaderString = `<script type="module" src="../../../devLoader.js"></script>`;
-const devLoaderDebug = `<link rel="stylesheet" href="../../../devLoader.css">`;
+const devLoaderString = `<script type="module" src="../../../inlineHTMLRuntime.js"></script>`;
+const devLoaderDebug = `<link rel="stylesheet" href="../../../inlineHTMLdebugHelper.css">`;
 // todo use this map
 const map = {};
 

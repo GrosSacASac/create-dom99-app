@@ -1,4 +1,4 @@
-import * as d from "../node_modules/dom99/built/dom99ES.js";
+import * as d from "../../node_modules/dom99/built/dom99ES.js";
 window.d = d;
 
 d.plugin({

@@ -1,4 +1,4 @@
-//devLoader.js
+//inlineHTMLRuntime.js
 /*
 using async XHR or fetch works sometimes and is different than actually inlining html
 replaceWith polyfill

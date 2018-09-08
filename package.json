@@ -1,16 +1,10 @@
 {
   "name": "create-dom99-app",
-  "version": "4.0.0",
+  "version": "15.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dynamicBuild": "echo \"No build step required open html files directly !\"",
-    "t1": "node buildHTML.js tests/html-include/html-only/index.html",
-    "t2": "node buildHTML.js tests/html-include/html-css/index.html",
-    "pack2": "parcel build tests/html-include/html-css/final-index.html",
-    "t3": "node buildHTML.js tests/html-include/html-js/entry.html",
-    "pack-dev": "parcel build tests/html-include/html-js/entry.html",
-    "pack": "parcel build tests/html-include/html-js/final-entry.html"
+    "t1": "node tools/inlineHTML.js home.html",
+    "pack": "parcel build final-home.html"
   },
   "author": "",
   "license": "ISC",
