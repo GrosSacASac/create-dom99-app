@@ -5,7 +5,6 @@
   "scripts": {
     "t1": "node tools/inlineHTML.js home.html",
     "pack": "parcel build final-home.html",
-    "hot comment": "... problem with js modules",
     "hot": "node hot-server-2/index.js --port 8080"
   },
   "author": "",
