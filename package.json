@@ -3,8 +3,8 @@
   "version": "16.0.0",
   "description": "",
   "scripts": {
-    "t1": "node tools/inlineHTML.js home.html",
-    "pack": "parcel build final-home.html",
+    "t1": "node tools/inlineHTML.js source/home.html",
+    "pack": "parcel build source/final-home.html",
     "hot": "node hot-server-2/index.js --port 8080"
   },
   "author": "",
