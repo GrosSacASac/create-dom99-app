@@ -1,18 +1,21 @@
 {
   "name": "create-dom99-app",
-  "version": "15.0.0",
+  "version": "16.0.0",
   "description": "",
   "scripts": {
     "t1": "node tools/inlineHTML.js home.html",
-    "pack": "parcel build final-home.html"
+    "pack": "parcel build final-home.html",
+    "hot comment": "... problem with js modules",
+    "hot": "node hot-server-2/index.js --port 8080"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel-bundler": "^1.9.7",
-    "utilsac": "^9.0.1"
+    "hot-server": "0.0.16",
+    "parcel-bundler": "^1.10.1",
+    "utilsac": "^9.1.0"
   },
   "dependencies": {
-    "dom99": "^15.4.2"
+    "dom99": "^15.4.9"
   }
 }
