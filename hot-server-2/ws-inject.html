@@ -1,0 +1,28 @@
+<!-- hot-server appends this snippit to inject code via a websock  -->
+<script>
+new WebSocket(location.origin.replace(/^http/, 'ws')).onmessage = msg => {
+  var {path, type, str} = JSON.parse(msg.data)
+  // console.log("message:", {path, type, str})
+  if (type == 'reload') location.reload()
+  if (type == 'jsInject') {
+      try {
+          eval(str)
+      } catch (error) {
+          // SyntaxError to use import in script js
+          // eval is always a script not module
+          if (error instanceof SyntaxError) {
+              import(path).then(() => {
+                  console.log(`${path} imported`)
+              }).catch(console.error);
+              return;
+          }
+          console.error(`unexpected error`, error);
+      }
+  }
+  if (type == 'cssInject') {
+    Array.from(document.querySelectorAll('link'))
+      .filter(d => d.href.includes(path))
+      .forEach(d => d.href = d.href)
+  }
+}
+</script>

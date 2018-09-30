@@ -11,9 +11,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "hot-server": "0.0.16",
     "parcel-bundler": "^1.10.1",
-    "utilsac": "^9.1.0"
+    "utilsac": "^9.1.0",
+    "chokidar": "^2.0.4",
+    "express": "^4.16.3",
+    "minimist": "^1.2.0",
+    "serve-index": "^1.9.1",
+    "serve-static": "^1.13.2",
+    "ws": "^6.0.0"
   },
   "dependencies": {
     "dom99": "^15.4.9"
