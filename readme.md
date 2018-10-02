@@ -35,11 +35,23 @@ Edit files in `source/`
 
 Open `home.html` in `source/`. To enable hot reload use `npm run hot` then visit `http://localhost:8080/source/home.html`
 
+### How does it work without compilation step
+
+Html includes are handled by `tools/inlineHTMLRuntime.js`. It inlines every imported html file.  It checks for `type="text/html"` and `src`. Open `source/home.html` for an example.
+```
+<script type="text/html" src="html/superParagraph.html"></script>
+```
+JS and CSS modules are handled by the browser natively.
+
 ## Build for production
 
 `npm run t1`
 
+This will run `tools/inlineHTML.js` which is almost like its runtime counterpart, except that it creates a new file with every import inlined to avoid network requests.
+
 `npm run pack`
+
+This will run parcel, so that JS files and CSS files also have their imports resolved to avoid network requests. It also minfies files and can use a babel config for transpiling.
 
 The results will be in `dist/`
 
@@ -53,3 +65,4 @@ The results must be served as top level url.
  * testing set up
  * linting
  * explainer how to split code into independent components
+ 
