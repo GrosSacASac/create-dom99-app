@@ -28,12 +28,11 @@ const importHTML = function (startNode) {
         console.log(error, `problem loading ${script.src}`);
       }
       
-      let htmlString;
-      if (request.status === 200) {
-        htmlString = request.responseText;
-      } else {
-        htmlString = `<strong>problem loading ${script.src}</strong>`;
+      if (request.status !== 200) {
+        throw Error(`problem loading ${script.src}
+        check if path is correct, and if file can be served`)
       }
+      const htmlString = request.responseText;
       
       // a way to parse a html string and add it inline in the DOM
       // without container element like <div></div>
@@ -45,7 +44,6 @@ const importHTML = function (startNode) {
     }
     
     script.replaceWith(clone);
-
   });
 };
 
