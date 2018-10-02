@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="css/site-category.css">
     <!-- styles only for this page -->
     <link rel="stylesheet" href="css/page-index.css">
+    
+    <!-- html includes for development without compile step -->
+    <link rel="stylesheet" href="../tools/inlineHTMLdebugHelper.css">
+    <script type="module" src="../tools/inlineHTMLRuntime.js"></script>
+    
     <!-- by default modules execute on load and are non blocking -->
     <script src="js/main.js" type="module"></script>
 </head>
@@ -25,6 +30,10 @@
     <button data-function="showHelp" data-element="showHelp">Show Help</button>
 
     <p data-variable="helpText"></p>
+
+    <h2>Below is an html include</h2>
+ 
+    <script type="text/html" data-inline src="html/superParagraph.html"></script>
 
 </body>
 </html>

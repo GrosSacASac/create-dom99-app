@@ -8,14 +8,16 @@ const {
 const path = require("path");
 const cliInputs = process.argv.slice(2);
 
-
 const skipMinification = false;
 const thisName = "html build";
 
 
 const prefixFinal = "final-";
-const devLoaderString = `<script type="module" src="../../../inlineHTMLRuntime.js"></script>`;
-const devLoaderDebug = `<link rel="stylesheet" href="../../../inlineHTMLdebugHelper.css">`;
+// todo use regex or better check for inlineHTMLRuntime.js inside src
+const devLoaderString = `<script type="module" src="../tools/inlineHTMLRuntime.js"></script>`
+
+// todo use  or better, check for inlineHTMLdebugHelper.css
+const devLoaderDebug = `<link rel="stylesheet" href="../tools/inlineHTMLdebugHelper.css">`;
 // todo use this map
 const map = {};
 
@@ -58,8 +60,8 @@ const inlineHTML = function (html, baseDir) {
     });
 };
 
-Promise.all(cliInputs.map(textFileContent)
-).then(function (originalHTMLStrings) {
+Promise.all(cliInputs.map(textFileContent))
+.then(function (originalHTMLStrings) {
     return Promise.all(originalHTMLStrings.map(function (originalHTMLString, i) {
       const withOutDevloader = originalHTMLString.replace(devLoaderString, ``)
 																			 .replace(devLoaderDebug, ``);

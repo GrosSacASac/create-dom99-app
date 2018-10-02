@@ -8,7 +8,7 @@ does ${script.src} need to ne html escaped ?
 const map = {};
 const importHTML = function (startNode) {
   // convert to a frozen array
-  const scripts = [...startNode.querySelectorAll(`script`)];
+  const scripts = Array.from(startNode.querySelectorAll(`script`));
 
   scripts.forEach(function (script) {
     if (!script.hasAttribute(`data-inline`)) {

@@ -16,7 +16,8 @@ d.start(
         showHelp
     }, // functions
     {
-        title: `Hello World`
+        title: `Hello World`,
+        superParagraph: `Super Paragraph text`
     }, // initial feed
     document.body, // start Element
     function () {
