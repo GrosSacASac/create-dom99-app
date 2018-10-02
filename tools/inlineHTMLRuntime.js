@@ -22,15 +22,18 @@ const importHTML = function (startNode) {
       const request = new XMLHttpRequest();
       request.overrideMimeType("text/plain");
       request.open('GET', script.src, false);
+      
+      const errorMessage = `problem loading ${script.src}
+        check if path is correct, and if file can be served`
       try {
         request.send(null);
       } catch (error) {
-        console.log(error, `problem loading ${script.src}`);
+        console.error(error);
+        throw Error(errorMessage);
       }
       
       if (request.status !== 200) {
-        throw Error(`problem loading ${script.src}
-        check if path is correct, and if file can be served`)
+        throw Error(errorMessage);
       }
       const htmlString = request.responseText;
       
