@@ -10,7 +10,7 @@ const cliInputs = process.argv.slice(2);
 
 const skipMinification = false;
 const thisName = "html build";
-
+const typeTextHtml = `text/html`;
 
 const prefixFinal = "final-";
 // todo use regex or better check for inlineHTMLRuntime.js inside src
@@ -23,7 +23,7 @@ const map = {};
 
 const inlineHTML = function (html, baseDir) {
     let newHTML = html;
-    const findInlines = /<script type="text\/html" data-inline src="([^"]+)"><\/script>/g;
+    const findInlines = RegExp(`<script type="${typeTextHtml}" src="([^"]+)"><\/script>`, `g`);
 
     const allMatches = [];
     let matches;
@@ -78,6 +78,5 @@ Promise.all(cliInputs.map(textFileContent))
     }));
 
 }).catch(function (reason) {
-    const errorText = thisName + " failed: " + String(reason);
-    console.error(errorText);
+    console.error(`inlineHTML.js failed: ${reason}`);
 });

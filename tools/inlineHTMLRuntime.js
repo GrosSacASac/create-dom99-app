@@ -5,13 +5,14 @@ replaceWith polyfill
 https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
 does ${script.src} need to ne html escaped ? 
 */
+const typeTextHtml = `text/html`;
 const map = {};
 const importHTML = function (startNode) {
   // convert to a frozen array
   const scripts = Array.from(startNode.querySelectorAll(`script`));
 
   scripts.forEach(function (script) {
-    if (!script.hasAttribute(`data-inline`)) {
+    if (script.getAttribute(`type`) !== typeTextHtml) {
       return;
     }
     let clone;
