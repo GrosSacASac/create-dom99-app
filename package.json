@@ -1,7 +1,7 @@
 {
   "name": "create-dom99-app",
-  "version": "16.0.0",
-  "description": "",
+  "version": "16.0.1",
+  "description": "starter template for static website development",
   "scripts": {
     "t1": "node tools/inlineHTML.js source/home.html",
     "pack": "parcel build source/final-home.html",
@@ -20,6 +20,6 @@
     "ws": "^6.0.0"
   },
   "dependencies": {
-    "dom99": "^15.4.9"
+    "dom99": "^16.0.1"
   }
 }
