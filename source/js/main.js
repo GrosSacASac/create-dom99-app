@@ -13,14 +13,14 @@ const showHelp = function () {
 // here you cannot use d.elements
 
 d.start(
-    {
-        showHelp
-    }, // functions
+    document.body, // start Element
     {
         title: `Hello World`,
         superParagraph: `Super Paragraph text`
     }, // initial feed
-    document.body, // start Element
+    {
+        showHelp
+    }, // functions
     function () {
         // function executes after dom99 went through
         // here you can use d.elements
