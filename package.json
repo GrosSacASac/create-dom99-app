@@ -3,8 +3,9 @@
   "version": "17.0.0",
   "description": "starter template for static website development",
   "scripts": {
-    "t1": "node tools/inlineHTML.js source/home.html",
-    "pack": "parcel build source/final-home.html",
+    "inlineHTML": "node tools/inlineHTML.js source/home.html",
+    "packJS": "parcel build source/final-home.html",
+    "prod": "npm run inlineHTML && npm run packJS",
     "server": "node auto-reload-server/auto-reload-server.js --port 8080"
   },
   "author": "",

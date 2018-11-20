@@ -14,7 +14,6 @@ const PORT = minimist(process.argv.slice(2)).port || 3989
 
 const server = express()
   .get('*', injectHTML)
-  .use(renamesMapper)
   .use(serveStatic('./'))
   .use('/', serveIndex('./'))
   .listen(PORT)
@@ -23,7 +22,7 @@ const server = express()
 
 function injectHTML(req, res, next){
   //try{
-    const path = req.params[0].slice(1)
+    let path = req.params[0].slice(1)
     if (path.slice(-1) === '/') {
         path = path + '/index.html'
     }
