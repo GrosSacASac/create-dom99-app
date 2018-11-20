@@ -1,11 +1,11 @@
 {
   "name": "create-dom99-app",
-  "version": "16.0.1",
+  "version": "17.0.0",
   "description": "starter template for static website development",
   "scripts": {
     "t1": "node tools/inlineHTML.js source/home.html",
     "pack": "parcel build source/final-home.html",
-    "hot": "node hot-server-2/index.js --port 8080"
+    "server": "node auto-reload-server/auto-reload-server.js --port 8080"
   },
   "author": "",
   "license": "ISC",
