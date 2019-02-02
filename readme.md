@@ -33,10 +33,10 @@ Edit files in `source/`
 
 ### View result
 
-Open `home.html` in `source/`. To enable auto reload use 
+Open `home.html` in `source/`.
+To enable auto reload use 
 `npm run server`
- then visit
-`http://localhost:8080/source/home.html`
+ then visit http://localhost:8080/home.html
 
 ### How does it work without compilation step
 

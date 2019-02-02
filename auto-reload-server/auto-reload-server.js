@@ -2,40 +2,46 @@
 
 const express = require('express')
 const serveStatic = require('serve-static')
-const serveIndex = require('serve-index')
 const ws = require('ws')
 const fs = require('fs')
 const chokidar = require('chokidar')
 const child = require('child_process')
 const minimist = require('minimist')
+const wsInject = fs.readFileSync(`${__dirname}/ws-inject.html`, 'utf8');
 
-
-const PORT = minimist(process.argv.slice(2)).port || 3989
+const PORT = minimist(process.argv.slice(2)).port || 8080;
+const SOURCE_PATH = `source`;
 
 const server = express()
   .get('*', injectHTML)
-  .use(serveStatic('./'))
-  .use('/', serveIndex('./'))
+  /* serve from source so that http://localhost:8080/home.html
+  becomes http://localhost:8080/source/home.html
+  but also from root so that node_modules is accessible
+  */
+  .use(serveStatic(`./${SOURCE_PATH}`))
+  .use(serveStatic(`./`))
   .listen(PORT)
-  .on('listening', () => child.exec('open http://localhost:' + PORT))
+  .on('listening', () => {
+      console.log(`open http://localhost:${PORT}`);
+  });
 
 
 function injectHTML(req, res, next){
-  //try{
-    let path = req.params[0].slice(1)
-    if (path.slice(-1) === '/') {
-        path = path + '/index.html'
-    }
-    if (path == '') {
-        path = 'index.html'
-    }
+    const path = req.params[0].slice(1)
     if (path.slice(-5) !== '.html') {
         return next()
     }
-    //todo put back at the top
-    const wsInject = fs.readFileSync(__dirname + '/ws-inject.html', 'utf8')
-    res.send(fs.readFileSync(path, 'utf-8') + wsInject)
- // } catch(e){ next() }
+    const finalPath = `${SOURCE_PATH}/${path}`;
+    let text;
+    try{
+        text = fs.readFileSync(finalPath, 'utf-8')
+    } catch(e){
+        console.error(e);
+        console.error(`Could not find ${finalPath}`);
+        next()
+        return; 
+    }
+    res.send(`${text}${wsInject}`);
 }
 
 
