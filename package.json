@@ -1,6 +1,6 @@
 {
   "name": "create-dom99-app",
-  "version": "17.1.0",
+  "version": "172.0.0",
   "description": "starter template for static website development",
   "scripts": {
     "inlineHTML": "node tools/inlineHTML.js source/home.html",
@@ -8,18 +8,16 @@
     "prod": "npm run inlineHTML && npm run packJS",
     "server": "node auto-reload-server/auto-reload-server.js"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "chokidar": "^2.0.4",
     "express": "^4.16.4",
     "minimist": "^1.2.0",
     "parcel-bundler": "^1.11.0",
     "serve-static": "^1.13.2",
-    "utilsac": "^9.7.0",
-    "ws": "^6.1.3"
+    "utilsac": "^9.7.2",
+    "ws": "^6.1.4"
   },
   "dependencies": {
-    "dom99": "^17.3.2"
+    "dom99": "^17.3.5"
   }
 }
