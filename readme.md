@@ -25,7 +25,7 @@ Download on [GitHub](https://github.com/GrosSacASac/create-dom99-app/archive/mas
 
 ### Install dependencies
 
-`npm install`
+`npm i`
 
 ### Edit files
 
@@ -35,32 +35,38 @@ Edit files in `source/`
 
 Open `home.html` in `source/`.
 To enable auto reload use 
-`npm run server`
- then visit http://localhost:8080/home.html
 
-### How does it work without compilation step
+`npm run serve-dev`
+
+then visit http://localhost:8080/home.html
+
+### How does it work without compilation step ?
 
 Html includes are handled by `tools/inlineHTMLRuntime.js`. It inlines every imported html file.  It checks for `type="text/html"` and `src`. Open `source/home.html` for an example.
+
 ```
 <script type="text/html" src="html/superParagraph.html"></script>
 ```
+
 JS and CSS modules are handled by the browser natively.
 
 ## Build for production
 
-`npm run prod`
+`npm run build-prod`
 
 The results will be in `dist/`
 
 The results must be served as top level url.
 
+`npm run serve-prod`
+
 Or as individual commands
 
-`npm run inlineHTML`
+`npm run inline-html`
 
 This will run `tools/inlineHTML.js` which is almost like its runtime counterpart, except that it creates a new file with every import inlined to avoid network requests.
 
-`npm run packJS`
+`npm run bundle-js`
 
 This will run parcel, so that JS files and CSS files also have their imports resolved to avoid network requests. It also minfies files and can use a babel config for transpiling.
 
