@@ -10,7 +10,7 @@
     "serve-dev": "node auto-reload-server/auto-reload-server.js"
   },
   "devDependencies": {
-    "chokidar": "^2.0.4",
+    "chokidar": "^3.0.1",
     "express": "^4.17.1",
     "minimist": "^1.2.0",
     "parcel-bundler": "^1.12.3",
