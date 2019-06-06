@@ -4,6 +4,7 @@
 
 Made for static Single page apps. Get started with files and structure ready.
 
+
 ## What is included
 
 ### DOM manipulation
@@ -17,10 +18,13 @@ When developping using an es modules capable browser you don't have to bundle yo
 
 ## How to
 
+### Requirements
+
+Node 12+
 
 ### Download
 
-Download on [GitHub](https://github.com/GrosSacASac/create-dom99-app/archive/master.zip)
+Download on [github.com/GrosSacASac/create-dom99-app](https://github.com/GrosSacASac/create-dom99-app/archive/master.zip)
 
 
 ### Install dependencies
@@ -34,7 +38,10 @@ Edit files in `source/`
 ### View result
 
 Open `home.html` in `source/`.
+
+
 To enable auto reload use 
+
 
 `npm run serve-dev`
 

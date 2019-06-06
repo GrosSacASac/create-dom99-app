@@ -1,11 +1,5 @@
-"use strict";
-
-const {
-    textFileContent,
-    writeTextInFile,
-    copyFile
-} = require("utilsac");
-const path = require("path");
+import { textFileContent, writeTextInFile, copyFile } from "filesac";
+import path from "path";
 const cliInputs = process.argv.slice(2);
 
 const skipMinification = false;
@@ -42,8 +36,8 @@ const inlineHTML = function (html, baseDir) {
         return Promise.all(
             importedHTMLs.map(function (importedHTML, i) {
                 return inlineHTML(
-                  importedHTML,
-                  path.dirname(path.join(baseDir, allMatches[i][1]))
+                    importedHTML,
+                    path.dirname(path.join(baseDir, allMatches[i][1]))
                 );
             })
         );
@@ -61,22 +55,22 @@ const inlineHTML = function (html, baseDir) {
 };
 
 Promise.all(cliInputs.map(textFileContent))
-.then(function (originalHTMLStrings) {
-    return Promise.all(originalHTMLStrings.map(function (originalHTMLString, i) {
-      const withOutDevloader = originalHTMLString.replace(devLoaderString, ``)
-																			 .replace(devLoaderDebug, ``);
-      return inlineHTML(withOutDevloader, path.dirname(cliInputs[i]));
-    }));
-}).then(function (newHTMLStrings) {
-    return Promise.all(newHTMLStrings.map(function (newHTMLString, i) {
-      const oldPathParsed = path.parse(cliInputs[i]);
-      const newPath = path.join(oldPathParsed.dir, `${prefixFinal}${oldPathParsed.base}`);
-      return writeTextInFile(
-        newPath,
-        newHTMLString
-      );
-    }));
+    .then(function (originalHTMLStrings) {
+        return Promise.all(originalHTMLStrings.map(function (originalHTMLString, i) {
+            const withOutDevloader = originalHTMLString.replace(devLoaderString, ``)
+                .replace(devLoaderDebug, ``);
+            return inlineHTML(withOutDevloader, path.dirname(cliInputs[i]));
+        }));
+    }).then(function (newHTMLStrings) {
+        return Promise.all(newHTMLStrings.map(function (newHTMLString, i) {
+            const oldPathParsed = path.parse(cliInputs[i]);
+            const newPath = path.join(oldPathParsed.dir, `${prefixFinal}${oldPathParsed.base}`);
+            return writeTextInFile(
+                newPath,
+                newHTMLString
+            );
+        }));
 
-}).catch(function (reason) {
-    console.error(`inlineHTML.js failed: ${reason}`);
-});
+    }).catch(function (reason) {
+        console.error(`inlineHTML.js failed: ${reason}`);
+    });
