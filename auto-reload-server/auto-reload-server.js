@@ -8,7 +8,7 @@ import chokidar from "chokidar";
 const { watch } = chokidar;
 import minimist from "minimist";
 import path from "path";
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 
 
 const __filename = fileURLToPath(import.meta.url);
