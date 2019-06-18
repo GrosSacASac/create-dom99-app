@@ -8,11 +8,15 @@ import chokidar from "chokidar";
 const { watch } = chokidar;
 import minimist from "minimist";
 import path from "path";
+import { fileURLToPath } from 'url';
 
-// same as previous __dirname, substring(8) removes the file:/// that is at the beginning
-const dirname__ = path.dirname(import.meta.url.substring(8));
 
-const wsInject = readFileSync(`${dirname__}/ws-inject.html`, `utf8`);
+const __filename = fileURLToPath(import.meta.url);
+// same as previous __dirname
+const __dirname = path.dirname(__filename);
+
+
+const wsInject = readFileSync(`${__dirname}/ws-inject.html`, `utf8`);
 
 const PORT = minimist(process.argv.slice(2)).port || 8080;
 const SOURCE_PATH = `source`;
