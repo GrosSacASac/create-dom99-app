@@ -1,14 +1,13 @@
 
+
+import path from "path";
+import { fileURLToPath } from "url";
 import express from "express";
 import serveStatic from "serve-static";
 import ws from "ws";
-const { Server } = ws;
 import { readFileSync } from "fs";
 import chokidar from "chokidar";
-const { watch } = chokidar;
 import minimist from "minimist";
-import path from "path";
-import { fileURLToPath } from "url";
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -16,6 +15,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
+const { watch } = chokidar;
+const { Server } = ws;
 const wsInject = readFileSync(`${__dirname}/ws-inject.html`, `utf8`);
 
 const PORT = minimist(process.argv.slice(2)).port || 8080;

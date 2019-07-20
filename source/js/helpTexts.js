@@ -1,5 +1,5 @@
 
-export {helpText};
+export { helpText };
 
 
 const helpText = `

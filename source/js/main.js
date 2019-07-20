@@ -1,11 +1,11 @@
 import * as d from "../../node_modules/dom99/built/dom99ES.js";
-import {helpText} from "./helpTexts.js";
-import {updateTime} from "./xClock.js";
+import { helpText } from "./helpTexts.js";
+import { updateTime } from "./xClock.js";
 
 
 const showHelp = function () {
-  d.elements.showHelp.remove();
-  d.feed(`helpText`, helpText);
+    d.elements.showHelp.remove();
+    d.feed(`helpText`, helpText);
 };
 
 
@@ -26,8 +26,8 @@ d.start(
         // here you can use d.elements
 
         d.elements.loadingHint.remove();
-        
+
         setInterval(() => {
             updateTime();
         }, 1000);
-});
+    });

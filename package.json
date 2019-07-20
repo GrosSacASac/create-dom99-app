@@ -1,6 +1,6 @@
 {
   "name": "create-dom99-app",
-  "version": "173.0.0",
+  "version": "173.0.1",
   "description": "starter template for static website development",
   "type": "module",
   "scripts": {
