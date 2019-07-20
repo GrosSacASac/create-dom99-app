@@ -1,5 +1,5 @@
 <script type="module">
-new WebSocket(location.origin.replace(/^http/, 'ws')).onmessage = msg => {
-  location.reload()
+  new WebSocket(location.origin.replace(/^http/, `ws`)).onmessage = msg => {
+    location.reload();
   }
 </script>
