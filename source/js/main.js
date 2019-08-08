@@ -12,22 +12,22 @@ const showHelp = function () {
 // here executes before dom99 went through
 // here you cannot use d.elements
 
-d.start(
-    document.body, // start Element
-    {
+d.start({
+
+    initialFeed: {
         title: `Hello World`,
         superParagraph: `Super Paragraph text`
-    }, // initial feed
-    {
+    },
+    dataFunctions: {
         showHelp
-    }, // functions
-    function () {
-        // function executes after dom99 went through
-        // here you can use d.elements
+    },
+});
 
-        d.elements.loadingHint.remove();
+// executes after dom99 went through
+// here you can use d.elements
 
-        setInterval(() => {
-            updateTime();
-        }, 1000);
-    });
+d.elements.loadingHint.remove();
+
+setInterval(() => {
+    updateTime();
+}, 1000);
