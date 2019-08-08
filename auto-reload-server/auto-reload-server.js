@@ -2,12 +2,12 @@
 
 import path from "path";
 import { fileURLToPath } from "url";
-import express from "express";
-import serveStatic from "serve-static";
-import ws from "ws";
 import { readFileSync } from "fs";
+import polka from "polka";
+import serveStatic from "serve-static";
 import chokidar from "chokidar";
 import minimist from "minimist";
+import { createEventStream } from "onewaydata";
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -16,29 +16,33 @@ const __dirname = path.dirname(__filename);
 
 
 const { watch } = chokidar;
-const { Server } = ws;
-const wsInject = readFileSync(`${__dirname}/ws-inject.html`, `utf8`);
+const autoReloadUrlPath = `/auto-reload`;
+const autoReloadHtml = readFileSync(`${__dirname}/auto-reload.html`, `utf8`);
 
 const PORT = minimist(process.argv.slice(2)).port || 8080;
 const SOURCE_PATH = `source`;
 
-const server = express();
-server.get(`*`, injectHTML);
+const polkaServer = polka();
+polkaServer.use(function (req, res, next) {
+    if (req.url !== autoReloadUrlPath) {
+        next();
+    }
+    // let createEventStream handle it
+});
+polkaServer.use(injectHTML);
 /* serve from source so that http://localhost:8080/home.html
 becomes http://localhost:8080/source/home.html
 but also from root so that node_modules is accessible
 */
-server.use(serveStatic(`./${SOURCE_PATH}`));
-server.use(serveStatic(`./`));
-server.listen(PORT);
-server.on(`listening`, () => {
-    console.log(`open http://localhost:${PORT}`);
-});
+polkaServer.use(serveStatic(`./${SOURCE_PATH}`));
+polkaServer.use(serveStatic(`./`));
+polkaServer.listen(PORT);
+
 
 
 function injectHTML(req, res, next) {
-    const path = req.params[0].slice(1);
-    if (path.slice(-5) !== `.html`) {
+    const path = req.url;
+    if (!path.includes(`.html`)) {
         return next();
     }
     const finalPath = `${SOURCE_PATH}/${path}`;
@@ -51,19 +55,15 @@ function injectHTML(req, res, next) {
         next();
         return;
     }
-    res.send(`${text}${wsInject}`);
+    res.end(`${text}${autoReloadHtml}`);
 }
 
 
-const wss = new Server({ server });
-watch(`.`, { ignored: /\.git|[\/\\]\./ })
-    .on(`change`, path => {
-        console.log(`${path} changed`);
+const eventStream = createEventStream(polkaServer.server, { path: autoReloadUrlPath });
 
-        const type = `reload`;
-
-        const msg = { path, type };
-        wss.clients.forEach(socket => {
-            socket.send(JSON.stringify(msg));
-        });
-    });
+const fileWatcher = watch(`.`, { ignored: /\.git|[\/\\]\./ });
+fileWatcher.on(`change`, path => {
+    console.log(`${path} changed`);
+    eventStream.send({ data: path, event: `file/changed` });
+});
+console.log(`open http://localhost:${PORT}`);

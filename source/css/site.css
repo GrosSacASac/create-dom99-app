@@ -4,6 +4,7 @@
 @import '../node_modules/tachyons/css/tachyons.min.css';
 for production use a bundler to avoid network round-trips
 */
+@import './superParagraph.css';
 
 
 

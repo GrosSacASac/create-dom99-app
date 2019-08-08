@@ -1,0 +1,5 @@
+<script type="module">
+  new EventSource(`auto-reload`).addEventListener(`file/changed`, ({data}) => {
+    location.reload();
+  });
+</script>

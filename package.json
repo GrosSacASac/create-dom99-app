@@ -1,6 +1,6 @@
 {
   "name": "create-dom99-app",
-  "version": "173.0.1",
+  "version": "173.0.2",
   "description": "starter template for static website development",
   "type": "module",
   "scripts": {
@@ -12,13 +12,13 @@
   },
   "devDependencies": {
     "chokidar": "^3.0.1",
-    "express": "^4.17.1",
     "filesac": "^11.0.0",
     "minimist": "^1.2.0",
+    "onewaydata": "^4.0.0",
     "parcel-bundler": "^1.12.3",
+    "polka": "^0.5.2",
     "serve": "^11.0.1",
-    "serve-static": "^1.14.1",
-    "ws": "^7.0.0"
+    "serve-static": "^1.14.1"
   },
   "dependencies": {
     "dom99": "^19.1.1"
