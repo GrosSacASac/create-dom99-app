@@ -9,7 +9,7 @@ Made for static Single page apps. Get started with files and structure ready.
 
 ### DOM manipulation
 
-[dom99](https://cdn.rawgit.com/GrosSacASac/DOM99/master/documentation/documentation.html)
+[dom99](https://dom99.now.sh/)
 
 
 ### Zero second compile time during development
