@@ -16,19 +16,14 @@ const __dirname = path.dirname(__filename);
 
 
 const { watch } = chokidar;
-const autoReloadUrlPath = `/auto-reload`;
 const autoReloadHtml = readFileSync(`${__dirname}/auto-reload.html`, `utf8`);
 
 const PORT = minimist(process.argv.slice(2)).port || 8080;
 const SOURCE_PATH = `source`;
 
 const polkaServer = polka();
-polkaServer.use(function (req, res, next) {
-    if (req.url !== autoReloadUrlPath) {
-        next();
-    }
-    // let createEventStream handle it
-});
+const eventStream = createEventStream({ asMiddleWare: true });
+
 polkaServer.use(injectHTML);
 /* serve from source so that http://localhost:8080/home.html
 becomes http://localhost:8080/source/home.html
@@ -36,6 +31,7 @@ but also from root so that node_modules is accessible
 */
 polkaServer.use(serveStatic(`./${SOURCE_PATH}`));
 polkaServer.use(serveStatic(`./`));
+polkaServer.use(`/auto-reload`, eventStream.middleWare);
 polkaServer.listen(PORT);
 
 
@@ -59,7 +55,7 @@ function injectHTML(req, res, next) {
 }
 
 
-const eventStream = createEventStream(polkaServer.server, { path: autoReloadUrlPath });
+
 
 const fileWatcher = watch(`.`, { ignored: /\.git|[\/\\]\./ });
 fileWatcher.on(`change`, path => {
