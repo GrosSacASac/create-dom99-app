@@ -4,14 +4,35 @@
   "description": "starter template for static website development",
   "type": "module",
   "scripts": {
+    "lint-fix-meta": "eslint --ignore-path .gitignore --fix tests tools",
+    "lint-fix": "eslint --ignore-path .gitignore --fix source",
+    "lint": "eslint --ignore-path .gitignore source",
     "inline-html": "node --experimental-modules tools/inlineHTML.js source/home.html",
     "bundle-js": "parcel build source/final-home.html",
     "build-prod": "npm run inline-html && npm run bundle-js",
     "serve-prod": "serve ./dist -p 8080",
-    "serve-dev": "node --experimental-modules auto-reload-server/auto-reload-server.js"
+    "serve-dev": "node --experimental-modules tools/auto-reload-server/auto-reload-server.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "red"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module",
+      "ecmaFeatures": {}
+    },
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true
+    },
+    "rules": {}
   },
   "devDependencies": {
     "chokidar": "^3.0.2",
+    "eslint": "^6.2.2",
+    "eslint-config-red": "^1.3.0",
     "filesac": "^11.0.1",
     "minimist": "^1.2.0",
     "onewaydata": "^5.0.1",

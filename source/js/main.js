@@ -16,10 +16,10 @@ d.start({
 
     initialFeed: {
         title: `Hello World`,
-        superParagraph: `Super Paragraph text`
+        superParagraph: `Super Paragraph text`,
     },
     dataFunctions: {
-        showHelp
+        showHelp,
     },
 });
 
@@ -28,6 +28,7 @@ d.start({
 
 d.elements.loadingHint.remove();
 
+const SECOND = 1000;
 setInterval(() => {
     updateTime();
-}, 1000);
+}, SECOND);

@@ -6,11 +6,11 @@ d.start();
 d.feed({users :
     [
         {
-            picture: "boss.jpg",
-            bio: "Loves biking and skating"
+            picture: `boss.jpg`,
+            bio: `Loves biking and skating`,
         },
         {
-            picture: "sister.jpg",
-            bio: "Drinks tons of café."
-        }
+            picture: `sister.jpg`,
+            bio: `Drinks tons of café.`,
+        },
 ]});

@@ -77,11 +77,18 @@ This will run `tools/inlineHTML.js` which is almost like its runtime counterpart
 
 This will run parcel, so that JS files and CSS files also have their imports resolved to avoid network requests. It also minfies files and can use a babel config for transpiling.
 
+## Linting
+
+
+`npm run lint`
+
+and
+
+`npm run lint-fix` to automatically fix some issues
 
 
 ## todo
 
  * testing set up
- * linting
  * explainer how to split code into independent components
  

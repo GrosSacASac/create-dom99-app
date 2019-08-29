@@ -17,10 +17,10 @@ const showHelp = function () {
 
 d.start(
     {
-        showHelp
+        showHelp,
     }, // functions
     {
-        title: `Hello World`
+        title: `Hello World`,
     }, // initial feed
     document.body, // start Element
     function () {
