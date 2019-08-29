@@ -1,6 +1,6 @@
 {
   "name": "create-dom99-app",
-  "version": "173.0.2",
+  "version": "1.0.0",
   "description": "starter template for static website development",
   "type": "module",
   "scripts": {
@@ -11,16 +11,16 @@
     "serve-dev": "node --experimental-modules auto-reload-server/auto-reload-server.js"
   },
   "devDependencies": {
-    "chokidar": "^3.0.1",
-    "filesac": "^11.0.0",
+    "chokidar": "^3.0.2",
+    "filesac": "^11.0.1",
     "minimist": "^1.2.0",
-    "onewaydata": "^5.0.0",
+    "onewaydata": "^5.0.1",
     "parcel-bundler": "^1.12.3",
     "polka": "^0.5.2",
-    "serve": "^11.0.1",
+    "serve": "^11.1.0",
     "serve-static": "^1.14.1"
   },
   "dependencies": {
-    "dom99": "^20.0.2"
+    "dom99": "^20.0.6"
   }
 }
