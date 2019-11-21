@@ -42,6 +42,7 @@
     "serve-static": "^1.14.1"
   },
   "dependencies": {
+    "@eroc/core": "^2.0.0",
     "dom99": "^21.1.0"
   }
 }
