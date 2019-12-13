@@ -1,4 +1,4 @@
-import { Core, ALL } from "../../node_modules/@eroc/core/src/core.js";
+import { Core, ALL } from "../../node_modules/@eroc/core/dist/core.es.js";
 
 import * as d from "./dependencies.js";
 
