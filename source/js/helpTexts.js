@@ -1,8 +1,12 @@
+export { start, stop };
+import * as d from "./dependencies.js";
 
-export { helpText };
 
+const showHelp = function () {
+    d.elements.showHelp.remove();
+    d.feed(`helpText`, helpText);
+};
 
-const helpText = `
-Hello There.
-Welcome to dom99 quick start example.
-`;
+const start = function () {
+    d.functions.showHelp = showHelp;
+};

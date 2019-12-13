@@ -1,34 +1,32 @@
-import * as d from "../../node_modules/dom99/source/dom99.js";
-import { helpText } from "./helpTexts.js";
-import { updateTime } from "./xClock.js";
+import { Core, ALL } from "../../node_modules/@eroc/core/src/core.js";
+
+import * as d from "./dependencies.js";
+
+import * as helpTexts from "./helpTexts.js";
+import * as xClock from "./xClock.js";
 
 
-const showHelp = function () {
-    d.elements.showHelp.remove();
-    d.feed(`helpText`, helpText);
-};
+const core = new Core();
 
+// listen for all events
+core.on(ALL, ({ name, data, time }) => {
+    const timeString = new Date(time).toISOString();
+    console.debug(`${timeString} event ${String(name)} with data`, data);
+});
+
+core.start(helpTexts);
+core.start(xClock);
 
 // here executes before dom99 went through
 // here you cannot use d.elements
 
 d.start({
-
     initialFeed: {
         title: `Hello World`,
         superParagraph: `Super Paragraph text`,
-    },
-    dataFunctions: {
-        showHelp,
     },
 });
 
 // executes after dom99 went through
 // here you can use d.elements
-
 d.elements.loadingHint.remove();
-
-const SECOND = 1000;
-setInterval(() => {
-    updateTime();
-}, SECOND);
