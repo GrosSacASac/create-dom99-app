@@ -1,6 +1,6 @@
 {
   "name": "create-dom99-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "starter template for static website development",
   "type": "module",
   "scripts": {
@@ -12,6 +12,22 @@
     "build-prod": "npm run inline-html && npm run bundle-js",
     "serve-prod": "serve ./dist -p 8080",
     "serve-dev": "node --experimental-modules tools/auto-reload-server/auto-reload-server.js"
+  },
+  "dependencies": {
+    "@eroc/core": "^2.0.0",
+    "dom99": "^21.1.0"
+  },
+  "devDependencies": {
+    "chokidar": "^3.0.2",
+    "eslint": "^6.2.2",
+    "eslint-config-red": "^1.3.0",
+    "filesac": "^11.1.0",
+    "minimist": "^1.2.0",
+    "onewaydata": "^5.0.1",
+    "parcel-bundler": "^1.12.4",
+    "polka": "^0.5.2",
+    "serve": "^11.2.0",
+    "serve-static": "^1.14.1"
   },
   "eslintConfig": {
     "extends": [
@@ -28,21 +44,5 @@
       "node": true
     },
     "rules": {}
-  },
-  "devDependencies": {
-    "chokidar": "^3.0.2",
-    "eslint": "^6.2.2",
-    "eslint-config-red": "^1.3.0",
-    "filesac": "^11.1.0",
-    "minimist": "^1.2.0",
-    "onewaydata": "^5.0.1",
-    "parcel-bundler": "^1.12.4",
-    "polka": "^0.5.2",
-    "serve": "^11.2.0",
-    "serve-static": "^1.14.1"
-  },
-  "dependencies": {
-    "@eroc/core": "^2.0.0",
-    "dom99": "^21.1.0"
   }
 }
