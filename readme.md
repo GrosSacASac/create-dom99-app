@@ -7,9 +7,16 @@ Made for static Single page apps. Get started with files and structure ready.
 
 ## What is included
 
+
+
+### Application architecture
+
+[core](https://github.com/mauriciosoares/core.js)
+
 ### DOM manipulation
 
 [dom99](https://dom99.now.sh/)
+
 
 
 ### Zero second compile time during development
