@@ -1,4 +1,4 @@
-import { Core, ALL } from "../../node_modules/@eroc/core/dist/core.es.js";
+import { Core, useDefaultLogging } from "../../node_modules/@eroc/core/dist/core.es.js";
 
 import * as d from "./dependencies.js";
 
@@ -7,12 +7,9 @@ import * as xClock from "./xClock.js";
 
 
 const core = new Core();
+useDefaultLogging(core);
 
-// listen for all events
-core.on(ALL, ({ name, data, time }) => {
-    const timeString = new Date(time).toISOString();
-    console.debug(`${timeString} event ${String(name)} with data`, data);
-});
+
 (async () => {
     await core.start(helpTexts);
     await core.start(xClock);

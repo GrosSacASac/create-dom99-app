@@ -1,6 +1,6 @@
 {
   "name": "create-dom99-app",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "starter template for static website development",
   "type": "module",
   "scripts": {
@@ -14,7 +14,7 @@
     "serve-dev": "node --experimental-modules tools/auto-reload-server/auto-reload-server.js"
   },
   "dependencies": {
-    "@eroc/core": "^2.0.0",
+    "@eroc/core": "^2.2.0",
     "dom99": "^21.1.0"
   },
   "devDependencies": {
