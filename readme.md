@@ -85,10 +85,4 @@ This will run parcel, so that JS files and CSS files also have their imports res
 and
 
 `npm run lint-fix` to automatically fix some issues
-
-
-## todo
-
- * testing set up
- * explainer how to split code into independent components
  
