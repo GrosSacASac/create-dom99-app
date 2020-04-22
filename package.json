@@ -1,6 +1,6 @@
 {
   "name": "create-dom99-app",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "starter template for static website development",
   "type": "module",
   "scripts": {
@@ -40,7 +40,7 @@
       "ecmaFeatures": {}
     },
     "env": {
-      "es6": true,
+      "es2020": true,
       "browser": true,
       "node": true
     },
