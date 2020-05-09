@@ -1,0 +1,9 @@
+/* styles only index.html
+import components used on this page here
+*/
+@import '../components/superParagraph/superParagraph.css';
+
+body {
+    background-color: #fad420;
+    background-image: linear-gradient(to left, #e40b1d , #a8c023);
+}

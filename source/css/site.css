@@ -4,14 +4,6 @@
 @import '../node_modules/tachyons/css/tachyons.min.css';
 for production use a bundler to avoid network round-trips
 */
-@import './superParagraph.css';
-
-
-
-body {
-   background-color: #fad420;
-   background-image: linear-gradient(to left, #fe4050 , #fad420);
-}
 
 [hidden] {
   display: none !important;

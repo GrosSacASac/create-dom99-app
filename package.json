@@ -1,14 +1,15 @@
 {
   "name": "create-dom99-app",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "starter template for static website development",
   "type": "module",
   "scripts": {
     "lint-fix-meta": "eslint --ignore-path .gitignore --fix tests tools",
     "lint-fix": "eslint --ignore-path .gitignore --fix source",
     "lint": "eslint --ignore-path .gitignore source",
-    "inline-html": "node ./node_modules/html-sac/source/buildTime/inlineHTML.js source/home.html source/final-home.html",
-    "bundle-js": "parcel build source/final-home.html",
+    "inline-html": "node ./node_modules/html-sac/source/buildTime/inlineHTML.js source/index.html source/index-temp.html",
+    "bundle-js": "parcel build source/index-temp.html",
+    "clean": "node toos/clean.js",
     "build-prod": "npm run inline-html && npm run bundle-js",
     "serve-prod": "serve ./dist -p 8080",
     "serve-dev": "node tools/auto-reload-server/auto-reload-server.js"
