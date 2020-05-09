@@ -27,7 +27,7 @@ When developping using an es modules capable browser you don't have to bundle yo
 
 ### Requirements
 
-Node 12+
+Node 14+
 
 ### Download
 
@@ -41,6 +41,23 @@ Download on [github.com/GrosSacASac/create-dom99-app](https://github.com/GrosSac
 ### Edit files
 
 Edit files in `source/`
+
+#### How to create a new html page
+
+ * Create a new html file next to index.html, for example game.html
+ * Create a new css file next to index.css, for example game.css
+
+#### How to create reusable components
+
+ * Create a folder of the component name inside source/components
+ * Create a html file with the template of the component for example  source/components/superParagrah.html
+ * Optional, create a css and js file in the same folder
+
+#### How to use a reusable component
+
+ * Inside your html import it with `<script type="text/html" src="components/superParagraph/superParagraph.html"></script>`
+ * Optional inside your css of the page or pages that is using it import its stylesheet with `@import '../components/superParagraph/superParagraph.css';`
+ * Optional inside your js main of the page or pages that is using it import its js file with `import * as superParagraph from "../components/superParagraph/superParagraph.js";` and use it
 
 ### View result
 
