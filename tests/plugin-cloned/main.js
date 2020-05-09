@@ -1,5 +1,7 @@
 //main.js
 import * as d from "../../../node_modules/dom99/source/dom99.js";
+import {idGenerator} from "../../../node_modules/dom99/source/idGenerator.js";
+
 
 d.plugin({
     type: `cloned`,
@@ -7,7 +9,7 @@ d.plugin({
         if (!pathInStart.includes(`questions`)) {
             return;
         }
-        const newId = d.idGenerator();
+        const newId = idGenerator();
         d.element(pathInStart, `input`).setAttribute(`id`, newId);
         d.element(pathInStart, `label`).setAttribute(`for`, newId);
     },
