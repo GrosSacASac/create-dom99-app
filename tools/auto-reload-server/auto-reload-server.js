@@ -22,6 +22,7 @@ const SOURCE_PATH = `source`;
 const polkaServer = polka();
 const eventStream = createEventStream({ asMiddleWare: true });
 
+
 polkaServer.use(injectHTML);
 /* serve from source so that http://localhost:8080/home.html
 becomes http://localhost:8080/source/home.html
@@ -33,9 +34,12 @@ polkaServer.use(`/auto-reload`, eventStream.middleWare);
 polkaServer.listen(PORT);
 
 
-
+const endBody = `</body>`;
 function injectHTML(req, res, next) {
-    const path = req.url;
+    let path = req.url;
+    if (path === `/`) {
+        path = `/index.html`;
+    }
     if (!path.includes(`.html`)) {
         return next();
     }
@@ -44,12 +48,10 @@ function injectHTML(req, res, next) {
     try {
         text = readFileSync(finalPath, `utf-8`);
     } catch (e) {
-        console.error(e);
-        console.error(`Could not find ${finalPath}`);
         next();
         return;
     }
-    res.end(`${text}${autoReloadHtml}`);
+    res.end(text.replace(endBody, `${autoReloadHtml}${endBody}`));
 }
 
 
