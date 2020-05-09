@@ -9,8 +9,8 @@
     "lint": "eslint --ignore-path .gitignore source",
     "inline-html": "node ./node_modules/html-sac/source/buildTime/inlineHTML.js source/index.html source/index-temp.html",
     "bundle-js": "parcel build source/index-temp.html",
-    "clean": "node toos/clean.js",
-    "build-prod": "npm run inline-html && npm run bundle-js",
+    "clean": "node tools/clean.js",
+    "build-prod": "npm run inline-html && npm run bundle-js && npm run clean",
     "serve-prod": "serve ./dist -p 8080",
     "serve-dev": "node tools/auto-reload-server/auto-reload-server.js"
   },
