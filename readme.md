@@ -61,15 +61,15 @@ Edit files in `source/`
 
 ### View result
 
-Open `home.html` in `source/`.
+Open `index.html` in `source/`.
 
 
-To enable auto reload use 
+To enable auto reload on file change use 
 
 
 `npm run serve-dev`
 
-then visit http://localhost:8080/home.html
+then open http://localhost:8080/
 
 ### How does it work without compilation step ?
 
@@ -85,7 +85,7 @@ JS and CSS modules are handled by the browser natively.
 
 `npm run build-prod`
 
-The results will be in `dist/`
+The results will be in `built/`
 
 The results must be served as top level url.
 
@@ -97,9 +97,13 @@ Or as individual commands
 
 This will run `tools/inlineHTML.js` which is almost like its runtime counterpart, except that it creates a new file with every import inlined to avoid network requests.
 
+`npm run static-copies`
+
+Copy static assets
+
 `npm run bundle-js`
 
-This will run parcel, so that JS files and CSS files also have their imports resolved to avoid network requests. It also minfies files and can use a babel config for transpiling.
+This will run rollup, so that JS files also have their imports resolved to avoid network requests. It also minfies files.
 
 ## Linting
 
