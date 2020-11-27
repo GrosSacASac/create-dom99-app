@@ -36,7 +36,7 @@ Download on [github.com/GrosSacASac/create-dom99-app](https://github.com/GrosSac
 
 ### Install dependencies
 
-`npm i`
+`npm ci`
 
 ### Edit files
 
