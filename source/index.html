@@ -16,18 +16,35 @@
     <link rel="stylesheet" href="../node_modules/html-sac/source/runTime/inlineHTMLdebugHelper.css">
     <script type="module" src="../node_modules/html-sac/source/runTime/inlineHTMLRuntime.js"></script>
     
-    <!-- by default modules execute on load and are non blocking -->
-    <script src="js/main.js" type="module"></script>
+    <script type="module">
+        const PROD = "./bundle.es.min.js";
+        const DEV = "./js/core/main.js";
+        (async function () {
+            if (location.hostname === `localhost`) {
+                try {
+                    await import(PROD); // when trying prodversion in dev
+                } catch (importError) {
+                    import(DEV); 
+                }
+            } else {
+                import(PROD);
+            }
+        }());
+    </script>
 </head>
 
 
 <body>
 
     <h1 data-variable="title"> - </h1>
+
     <p data-element="loadingHint">Loading ...</p>
+
     <button data-function="showHelp" data-element="showHelp">Show Help</button>
+
     <p data-variable="helpText"></p>
-    <h2>Below is an html include</h2>
+
+    <h2>Below is an html include &lt;script type="text/html"&gt;  that should be inlined</h2>
  
     <script type="text/html" src="components/superParagraph/superParagraph.html"></script>
     

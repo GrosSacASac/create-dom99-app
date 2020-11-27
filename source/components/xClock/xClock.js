@@ -1,5 +1,5 @@
 export { updateTime, start, stop };
-import * as d from "../../js/dependencies.js";
+import * as d from "../../js/core/dependencies.js";
 
 
 const updateTime = () => {

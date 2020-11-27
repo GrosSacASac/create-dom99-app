@@ -7,27 +7,30 @@
     "lint-fix-meta": "eslint --ignore-path .gitignore --fix tests tools",
     "lint-fix": "eslint --ignore-path .gitignore --fix source",
     "lint": "eslint --ignore-path .gitignore source",
-    "inline-html": "node ./node_modules/html-sac/source/buildTime/inlineHTML.js source/index.html source/index-temp.html",
-    "bundle-js": "parcel build source/index-temp.html",
-    "clean": "node tools/clean.js",
-    "build-prod": "npm run inline-html && npm run bundle-js && npm run clean",
-    "serve-prod": "serve ./dist -p 8080",
-    "serve-dev": "node tools/auto-reload-server/auto-reload-server.js"
+    "serve-dev": "node tools/auto-reload-server/auto-reload-server.js",
+    "inline-html": "node ./node_modules/html-sac/source/buildTime/inlineHTML.js source/index.html built/index.html",
+    "bundle-js": "rollup --config tools/rollup.config.js",
+    "static-copy": "node ./tools/staticCopies",
+    "build-prod": "npm run inline-html && npm run bundle-js && npm run static-copy",
+    "serve-prod": "serve ./built -p 8080"
   },
   "dependencies": {
     "@eroc/core": "*",
     "dom99": "*"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
     "chokidar": "^3.3.1",
     "eslint": "^6.8.0",
     "eslint-config-red": "^1.7.0",
-    "filesac": "^11.1.1",
+    "filesac": "^12.0.0",
     "html-sac": "^2.0.1",
     "minimist": "^1.2.5",
     "onewaydata": "^5.0.1",
-    "parcel-bundler": "^1.12.4",
     "polka": "^0.5.2",
+    "rollup": "^2.33.3",
+    "rollup-plugin-terser": "^7.0.2",
     "serve": "^11.3.0",
     "serve-static": "^1.14.1"
   },
@@ -36,12 +39,12 @@
       "red"
     ],
     "parserOptions": {
-      "ecmaVersion": 2020,
+      "ecmaVersion": 2021,
       "sourceType": "module",
       "ecmaFeatures": {}
     },
     "env": {
-      "es2020": true,
+      "es2021": true,
       "browser": true,
       "node": true
     },
