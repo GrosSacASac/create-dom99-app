@@ -24,15 +24,6 @@ const polkaServer = polka();
 const eventStream = createEventStream({ asMiddleWare: true });
 
 
-polkaServer.use(injectHTML);
-/* serve from source so that http://localhost:8080/home.html
-becomes http://localhost:8080/source/home.html
-but also from root so that node_modules is accessible
-*/
-polkaServer.use(serveStatic(`./${SOURCE_PATH}`));
-polkaServer.use(serveStatic(`./`));
-polkaServer.use(`/auto-reload`, eventStream.middleWare);
-polkaServer.listen(PORT);
 
 
 const endBody = `</body>`;
@@ -56,6 +47,15 @@ const injectHTML = function (req, res, next) {
 };
 
 
+polkaServer.use(injectHTML);
+/* serve from source so that http://localhost:8080/home.html
+becomes http://localhost:8080/source/home.html
+but also from root so that node_modules is accessible
+*/
+polkaServer.use(serveStatic(`./${SOURCE_PATH}`));
+polkaServer.use(serveStatic(`./`));
+polkaServer.use(`/auto-reload`, eventStream.middleWare);
+polkaServer.listen(PORT);
 
 
 const fileWatcher = watch(`.`, { ignored: /\.git|[/\\]\./ });
