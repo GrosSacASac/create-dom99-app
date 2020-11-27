@@ -16,7 +16,8 @@ const __dirname = path.dirname(__filename);
 const { watch } = chokidar;
 const autoReloadHtml = readFileSync(`${__dirname}/auto-reload.html`, `utf8`);
 
-const PORT = minimist(process.argv.slice(2)).port || 8080;
+const defaultPort = 8080;
+const PORT = minimist(process.argv.slice(2)).port || defaultPort;
 const SOURCE_PATH = `source`;
 
 const polkaServer = polka();
@@ -35,15 +36,15 @@ polkaServer.listen(PORT);
 
 
 const endBody = `</body>`;
-function injectHTML(req, res, next) {
-    let path = req.url;
-    if (path === `/`) {
-        path = `/index.html`;
+const injectHTML = function (req, res, next) {
+    let requestPath = req.url;
+    if (requestPath === `/`) {
+        requestPath = `/index.html`;
     }
-    if (!path.includes(`.html`)) {
+    if (!requestPath.includes(`.html`)) {
         return next();
     }
-    const finalPath = `${SOURCE_PATH}/${path}`;
+    const finalPath = `${SOURCE_PATH}/${requestPath}`;
     let text;
     try {
         text = readFileSync(finalPath, `utf-8`);
@@ -52,14 +53,14 @@ function injectHTML(req, res, next) {
         return;
     }
     res.end(text.replace(endBody, `${autoReloadHtml}${endBody}`));
-}
+};
 
 
 
 
-const fileWatcher = watch(`.`, { ignored: /\.git|[\/\\]\./ });
-fileWatcher.on(`change`, path => {
-    console.log(`${path} changed`);
-    eventStream.send({ data: path, event: `file/changed` });
+const fileWatcher = watch(`.`, { ignored: /\.git|[/\\]\./ });
+fileWatcher.on(`change`, filePath => {
+    console.log(`${filePath} changed`);
+    eventStream.send({ data: filePath, event: `file/changed` });
 });
 console.log(`open http://localhost:${PORT}`);

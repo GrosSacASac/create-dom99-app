@@ -1,15 +1,8 @@
-export {
-    staticCopies,
-};
+// export { staticCopies};
 
-import { copyFile, copyDirectory } from "filesac";
-import fs, { stat } from "fs";
+import { copyDirectory } from "filesac";
 import path from "path";
-import url from "url";
 
-
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const source = `./source/`;
 const built = `./built/`;
@@ -25,7 +18,7 @@ const staticCopies = function () {
         directoriesToCopy.map(directoryName => {
             return copyDirectory(
                 path.join(source, directoryName),
-                path.join(built, directoryName)
+                path.join(built, directoryName),
             );
         }));
 };
