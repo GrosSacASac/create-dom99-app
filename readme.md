@@ -28,7 +28,7 @@ Made for static Single page apps. Get started with files and structure ready.
 
 ### Zero second compile time during development
 
-When developping, thanks to ES-modules there is no need to run a bundler, just refresh your browser to see changes.
+When developing, thanks to ES-modules there is no need to run a bundler, just refresh your browser to see changes.
 
 ## How to
 
@@ -73,7 +73,7 @@ To enable auto reload on file change use
 
 `npm run serve-dev`
 
-then open http://localhost:8080/ (`source/index.html`)
+Open http://localhost:8080/ (`source/index.html`)
 
 ### How does it work without compilation step ?
 
