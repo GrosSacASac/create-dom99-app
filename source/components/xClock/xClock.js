@@ -8,6 +8,7 @@ const updateTime = () => {
 
 const start = () => {
     const SECOND = 1000;
+    updateTime();
     const intervalId = setInterval(() => {
         updateTime();
     }, SECOND);
