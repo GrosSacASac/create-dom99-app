@@ -4,6 +4,7 @@
   "description": "starter template for static website development",
   "type": "module",
   "scripts": {
+    "test": "ava",
     "lint-fix-meta": "eslint --ignore-path .gitignore --fix tests tools",
     "lint-fix": "eslint --ignore-path .gitignore --fix source",
     "lint": "eslint --ignore-path .gitignore source",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "ava": "^3.14.0",
     "chokidar": "^3.4.3",
     "eslint": "^7.15.0",
     "eslint-config-red": "^1.8.1",
@@ -49,5 +51,12 @@
       "node": true
     },
     "rules": {}
+  },
+  "ava": {
+		"files": [
+			"tests/**"
+		],
+    "failFast": true,
+    "failWithoutAssertions": false
   }
 }

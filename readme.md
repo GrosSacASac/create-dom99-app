@@ -16,6 +16,14 @@ Made for static Single page apps. Get started with files and structure ready.
 
 [dom99](https://dom99.now.sh/)
 
+### Linting
+
+[eslint](https://eslint.org/)
+
+### Testing
+
+[AVA](https://github.com/avajs/ava)
+
 
 
 ### Zero second compile time during development
