@@ -117,4 +117,15 @@ This will run rollup, so that JS files also have their imports resolved to avoid
 and
 
 `npm run lint-fix` to automatically fix some issues
+
+## Testing
+
+`npm test`
+
  
+## License
+
+
+[CC0](./license.txt)
+
+Dependencies may have other licenses. Feel free to change the license after you downloaded this starter pack  for a new project.
