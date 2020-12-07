@@ -1,4 +1,4 @@
-import * as d from "../../node_modules/dom99/source/dom99.js";
+import * as d from "dom99";
 const timeOut = 5000;
 window.d = d;
 
