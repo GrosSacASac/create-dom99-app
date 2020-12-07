@@ -8,7 +8,6 @@ Made for static Single page apps. Get started with files and structure ready.
 ## What is included
 
 
-
 ### Application architecture
 
 [core](https://github.com/mauriciosoares/core.js)
@@ -21,7 +20,7 @@ Made for static Single page apps. Get started with files and structure ready.
 
 ### Zero second compile time during development
 
-When developping using an es modules capable browser you don't have to bundle your js modules, just refresh your browser to see changes.
+When developping, thanks to ES-modules there is no need to run a bundler, just refresh your browser to see changes.
 
 ## How to
 
@@ -56,20 +55,17 @@ Edit files in `source/`
 #### How to use a reusable component
 
  * Inside your html import it with `<script type="text/html" src="components/superParagraph/superParagraph.html"></script>`
- * Optional inside your css of the page or pages that is using it import its stylesheet with `@import '../components/superParagraph/superParagraph.css';`
- * Optional inside your js main of the page or pages that is using it import its js file with `import * as superParagraph from "../components/superParagraph/superParagraph.js";` and use it
+ * _Optional_ inside your css of the page or pages that is using it import its stylesheet with `@import '../components/superParagraph/superParagraph.css';`
+ * _Optional_ inside your js main of the page or pages that is using it import its js file with `import * as superParagraph from "../components/superParagraph/superParagraph.js";` and use it
 
-### View result
-
-Open `index.html` in `source/`.
+### Dev
 
 
 To enable auto reload on file change use 
 
-
 `npm run serve-dev`
 
-then open http://localhost:8080/
+then open http://localhost:8080/ (`source/index.html`)
 
 ### How does it work without compilation step ?
 
