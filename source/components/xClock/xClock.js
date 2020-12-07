@@ -1,10 +1,14 @@
-export { updateTime, start, stop };
+export { dateAndTimeString, start, stop };
 import * as d from "../../js/core/dependencies.js";
 
 
 const updateTime = () => {
-    d.feed(`time`, new Date().toLocaleString());
+    d.feed(`time`, dateAndTimeString());
 };
+
+const dateAndTimeString = () => {
+    return new Date().toLocaleString();
+}
 
 const start = () => {
     const SECOND = 1000;
