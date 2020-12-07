@@ -77,7 +77,7 @@ then open http://localhost:8080/ (`source/index.html`)
 
 ### How does it work without compilation step ?
 
-Html includes are handled by `tools/inlineHTMLRuntime.js`. It inlines every imported html file.  It checks for `type="text/html"` and `src`. Open `source/home.html` for an example.
+Html includes are handled by `tools/inlineHTMLRuntime.js`. It inlines every imported html file.  It checks for `type="text/html"` and `src`. Open [`source/index.html`](./source/index.html) for an example.
 
 ```
 <script type="text/html" src="html/superParagraph.html"></script>
