@@ -1,6 +1,6 @@
 {
   "name": "create-dom99-app",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "starter template for static website development",
   "license": "CC0-1.0",
   "type": "module",
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@eroc/core": "^3.1.0",
-    "dom99": "^22.1.0"
+    "dom99": "^23.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -27,7 +27,7 @@
     "chokidar": "^3.4.3",
     "eslint": "^7.15.0",
     "eslint-config-red": "^1.8.1",
-    "filesac": "^12.0.0",
+    "filesac": "^13.0.0",
     "html-sac": "^2.0.1",
     "minimist": "^1.2.5",
     "onewaydata": "^5.0.1",
@@ -54,9 +54,9 @@
     "rules": {}
   },
   "ava": {
-		"files": [
-			"tests/**"
-		],
+    "files": [
+      "tests/**"
+    ],
     "failFast": true,
     "failWithoutAssertions": false
   }
