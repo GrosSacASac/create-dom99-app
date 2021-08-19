@@ -1,4 +1,4 @@
-import { Core, useDefaultLogging } from "../../../node_modules/@eroc/core/dist/core.es.js";
+import { createCore, useDefaultLogging } from "../../../node_modules/@eroc/core/dist/core.es.js";
 
 import * as d from "./dependencies.js";
 
@@ -6,7 +6,7 @@ import * as helpTexts from "../helpTexts.js";
 import * as xClock from "../../components/xClock/xClock.js";
 
 
-const core = new Core();
+const core = createCore();
 useDefaultLogging(core);
 
 
