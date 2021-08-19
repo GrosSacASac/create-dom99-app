@@ -5,5 +5,5 @@ import test from "ava";
 
 
 test(`dateAndTimeString returns a string`, t => {
-    t.is(typeof dateAndTimeString() === "string", true);
-})
+    t.is(typeof dateAndTimeString() === `string`, true);
+});

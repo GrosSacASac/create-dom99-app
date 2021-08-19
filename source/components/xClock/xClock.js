@@ -8,7 +8,7 @@ const updateTime = () => {
 
 const dateAndTimeString = () => {
     return new Date().toLocaleString();
-}
+};
 
 const start = () => {
     const SECOND = 1000;
