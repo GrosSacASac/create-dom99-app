@@ -1,7 +1,7 @@
 // export { staticCopies};
 
+import path from "node:path";
 import { copyDirectory } from "filesac";
-import path from "path";
 
 
 const source = `./source/`;

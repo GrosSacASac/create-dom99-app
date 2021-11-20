@@ -1,6 +1,6 @@
-import path from "path";
-import { fileURLToPath } from "url";
-import { readFileSync } from "fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { readFileSync } from "node:fs";
 import polka from "polka";
 import serveStatic from "serve-static";
 import chokidar from "chokidar";
