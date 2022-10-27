@@ -30,7 +30,7 @@
     "filesac": "^13.0.0",
     "html-sac": "^3.0.0",
     "minimist": "^1.2.5",
-    "onewaydata": "^5.0.4",
+    "onewaydata": "^6.3.2",
     "polka": "^0.5.2",
     "rollup": "^2.60.0",
     "rollup-plugin-terser": "^7.0.2",
