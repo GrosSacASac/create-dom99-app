@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@eroc/core": "^4.3.2",
-    "dom99": "^23.1.1"
+    "dom99": "^26.0.1"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
@@ -27,7 +27,7 @@
     "chokidar": "^3.5.2",
     "eslint": "^8.2.0",
     "eslint-config-red": "^1.8.2",
-    "filesac": "^13.0.0",
+    "filesac": "^14.2.0",
     "html-sac": "^3.0.0",
     "minimist": "^1.2.5",
     "onewaydata": "^6.3.2",
