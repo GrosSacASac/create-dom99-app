@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import polka from "polka";
 import serveStatic from "serve-static";
 import chokidar from "chokidar";
-import minimist from "minimist";
+import { parseCli } from "cli-sac";
 import { createEventStream } from "onewaydata";
 
 
@@ -17,7 +17,7 @@ const { watch } = chokidar;
 const autoReloadHtml = readFileSync(`${__dirname}/auto-reload.html`, `utf8`);
 
 const defaultPort = 8080;
-const PORT = minimist(process.argv.slice(2)).port || defaultPort;
+const PORT = parseCli().port || defaultPort;
 const SOURCE_PATH = `source`;
 
 const polkaServer = polka();
