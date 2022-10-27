@@ -21,8 +21,8 @@
     "dom99": "^26.0.1"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "ava": "^5.0.1",
     "chokidar": "^3.5.2",
     "cli-sac": "^1.0.0",
@@ -32,7 +32,7 @@
     "html-sac": "^3.0.0",
     "onewaydata": "^6.3.2",
     "polka": "^0.5.2",
-    "rollup": "^2.60.0",
+    "rollup": "^3.2.3",
     "rollup-plugin-terser": "^7.0.2",
     "serve": "^13.0.2",
     "serve-static": "^1.15.0"
